@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Liver Disease Prediction</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #f2f2f2;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  width: 80%;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 30px;
+  font-weight: bold;
+  color: #4d00db;
+  margin-bottom: 20px;
+}
+
+.result-message {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.result-image {
+  max-width: 400px;
+  margin: auto;
+  display: block;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.positive-message {
+  color: green;
+}
+
+.negative-message {
+  color: red;
+}
+
+.symptom-list {
+  margin-top: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+.symptom-list li {
+  margin-bottom: 5px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+
+  .result-image {
+    max-width: 250px;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Results:</h2>
+
+    <div class="result-container">
+      {% if prediction == 1 %}
+        <div class="result-message negative-message">Chances of having Liver Disease are high, please consult a doctor.</div>
+
+        <h3>Symptoms</h3>
+        <ul class="symptom-list">
+          <li>Nausea</li>
+          <li>Vomiting</li>
+          <li>Right upper quadrant abdominal pain</li>
+          <li>Jaundice (a yellow discoloration of the skin due to elevated bilirubin concentrations in the bloodstream)</li>
+        </ul>
+
+        <img src="https://img.collegedekhocdn.com/media/img/careers/doctor-clinic.jpg" alt="Liver Disease" class="result-image">
+      {% elif prediction == 0 %}
+        <div class="result-message positive-message">You are at low risk of having Liver Disease.</div>
+
+        <p>Please continue to maintain a healthy lifestyle and get regular checkups to stay healthy.</p>
+
+        <img src="https://www.healthdesigns.net/wp-content/uploads/2018/06/iStock-943964060-min-1080x675.jpg" alt="No Liver Disease" class="result-image">
+      {% endif %}
+    </div>
+  </div>
+
+</body>
+</html>
